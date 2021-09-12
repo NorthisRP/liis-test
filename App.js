@@ -1,21 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import React from "react";
+import Navbar from "./src/Navbar";
+import { useFonts } from "expo-font";
+import { Provider } from "react-redux";
+import { store } from "./src/store/index";
+import Navigate from "./navigate";
 
 export default function App() {
+  const [loaded] = useFonts({
+    "abel-regular": require("./src/fonts/abel-regular.ttf"),
+    sf: require("./src/fonts/sf.ttf"),
+  });
+
+  if (!loaded) {
+    return null;
+  }
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <Provider store={store}>
+      <Navigate />
       <StatusBar style="auto" />
-    </View>
+    </Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
