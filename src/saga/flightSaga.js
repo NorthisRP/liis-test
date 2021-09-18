@@ -1,8 +1,7 @@
 import { put, takeEvery, call } from "redux-saga/effects";
 import { addAllFlights, FETCH_FLIGHTS } from "../store/flightReducer";
 
-const url =
-  "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/RU/RUB/en-US/MOSC-sky/NYCA-sky/2021-09/";
+const url = `https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/RU/RUB/en-US/MOSC-sky/NYCA-sky/2021-09/`;
 const options = {
   headers: {
     "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
